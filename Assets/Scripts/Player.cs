@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     //Variablen
-    public Vector2 jumpForce = new Vector2(0, 300);
+    public Vector3 jumpForce = new Vector3(0, 300, 0);
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
 
     void jump() {
         if (Input.GetKeyDown("space")) {
-            GetComponent<Rigidbody>().velocity = Vector2.zero;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
             GetComponent<Rigidbody>().AddForce(jumpForce);
         }
     }
