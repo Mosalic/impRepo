@@ -9,7 +9,7 @@ public class Obstacle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GetComponent<Rigidbody>().velocity = velocity;
-
+      
     }
 	
 	// Update is called once per frame
