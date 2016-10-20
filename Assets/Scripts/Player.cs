@@ -13,13 +13,34 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        jump();
+        Jump();
+        OffScreenCheck();
 	}
 
-    void jump() {
+    //Player jumps
+    void Jump() {
         if (Input.GetKeyDown("space")) {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             GetComponent<Rigidbody>().AddForce(jumpForce);
         }
+    }
+
+    //checks if player is in screen
+    void OffScreenCheck() {
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+
+        if (screenPos.y > Screen.height || screenPos.y < 0) {
+            Die(); 
+        }
+    }
+
+    // checks collision
+    void OnCollisionEnter(Collision col) {
+        Die();
+    }
+
+    //player dies, game restarts
+    void Die() {
+        Application.LoadLevel(Application.loadedLevel);
     }
 }

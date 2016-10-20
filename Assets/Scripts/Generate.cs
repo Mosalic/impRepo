@@ -7,7 +7,7 @@ public class Generate : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("CreateObstacle", 1f, 2f);
+		InvokeRepeating ("CreateObstacle", 1f, 1.5f);
 	}
 	
 	// Update is called once per frame
